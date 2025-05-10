@@ -25,7 +25,7 @@ class AudioManager {
 
     // Initialize background music
     this.backgroundMusic = new Howl({
-      src: ['src/utils/canyon.mp3'],
+      src: ['/public/canyon.mp3'],
       loop: true,
       volume: 0.2,
     });
