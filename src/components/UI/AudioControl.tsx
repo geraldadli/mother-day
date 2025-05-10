@@ -3,7 +3,7 @@ import { Music, VolumeX } from 'lucide-react';
 import AudioManager from '../../utils/audioManager';
 
 const AudioControl: React.FC = () => {
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const audioManager = AudioManager.getInstance();
   
   useEffect(() => {
