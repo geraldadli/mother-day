@@ -1,5 +1,4 @@
 import { Howl } from 'howler';
-import canyonMusic from '../../public/canyon.mp3';
 
 class AudioManager {
   private static instance: AudioManager;
@@ -26,7 +25,7 @@ class AudioManager {
 
     // Initialize background music
     this.backgroundMusic = new Howl({
-      src: [canyonMusic],
+      src: ['/canyon.mp3'],
       loop: true,
       volume: 0.2,
     });
