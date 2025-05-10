@@ -10,8 +10,7 @@ const CardInside: React.FC = () => {
   const [message, setMessage] = useState(
     "Dear Mom,\n\nThank you for your endless love, support, and encouragement. You've always been there for me through thick and thin, and I'm forever grateful for everything you do. You are my inspiration, my rock, and my best friend.\n\nHappy Mother's Day! I love you more than words can express.\n\nWith all my love,"
   );
-  const [name, setName] = useState("Gerald");
-  const [isEditing, setIsEditing] = useState(false);
+  const [name] = useState("Gerald"); // Name is now a constant and uneditable
   const [showImageUploader, setShowImageUploader] = useState(false);
   const [image, setImage] = useState<string | undefined>(undefined);
 
@@ -76,27 +75,14 @@ const CardInside: React.FC = () => {
             </motion.div>
           )}
 
-          {isEditing ? (
-            <motion.textarea
-              className="w-full h-auto p-4 border border-pink-200 rounded bg-white/80 text-sm sm:text-base text-pink-900 font-light leading-relaxed focus:outline-none focus:ring-2 focus:ring-pink-300"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              autoFocus
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-          ) : (
-            <motion.div
-              className="w-full min-h-40 sm:min-h-48 p-4 bg-white/80 border border-pink-200 rounded text-sm sm:text-base text-pink-900 font-light leading-relaxed whitespace-pre-wrap shadow-sm"
-              onClick={() => setIsEditing(true)}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-            >
-              {message}
-            </motion.div>
-          )}
+          <motion.div
+            className="w-full min-h-40 sm:min-h-48 p-4 bg-white/80 border border-pink-200 rounded text-sm sm:text-base text-pink-900 font-light leading-relaxed whitespace-pre-wrap shadow-sm"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            {message}
+          </motion.div>
         </div>
 
         <motion.div
@@ -105,20 +91,11 @@ const CardInside: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          {isEditing ? (
-            <input
-              className="w-full px-4 py-2 text-sm sm:text-base md:text-lg font-serif text-pink-800 bg-transparent border-b border-pink-300 focus:outline-none focus:border-pink-500"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          ) : (
-            <p
-              className="text-sm sm:text-base md:text-lg font-serif text-pink-800 italic cursor-pointer break-words"
-              onClick={() => setIsEditing(true)}
-            >
-              {name}
-            </p>
-          )}
+          <p
+            className="text-sm sm:text-base md:text-lg font-serif text-pink-800 italic break-words"
+          >
+            {name}
+          </p>
         </motion.div>
       </div>
     </div>
